@@ -1,0 +1,47 @@
+Okay so I figured it might be a good idea to write down how I'm doing this, in case Future Katu needs it. So.
+
+I started learning development on December 18th, 2022. I had done some very early C# tutorials (like, how to use an object oriented language) in summer of this year, but fell off after Sept or so. So I am very much a beginner.
+
+I have decided to use Unity as my engine. I am using VSCode as my code editor, but am considering switching to Visual Studio IDE because my Intellisense/autocomplete is a bit borken. There's one video on how to fix it, which I will try first.
+
+I began by following this tutorial series by Coding in Flow: https://www.youtube.com/watch?v=n0GQL5JgJcY&list=PLrnPJCHvNZuB5ATsJZLKX3AW4V9XaIV9b&index=1
+
+I also used this tutorial by Tarodev, as well as the following video on correcting movement in isometric space: https://www.youtube.com/watch?v=optfGhipg-w
+
+I used this video to help me decide between isometric in 2D vs 3D: https://www.youtube.com/watch?v=XeqKQBIa43g
+
+And obviously I decided that I'd do 3D. Eventually I made a fresh project from my initial first-steps one, and that new project is here in this github repo. Herbcraft is a working title. More on that later.
+
+So far:
+
+- I have a capsule with a face, which can move around.
+- I figured out why my character kept falling over (I needed to freeze the XYZ rotations).
+- I briefly tried to rig a 3D model I downloaded, but I messed up and decided it was out of scope for now. 
+- I watched a video by jdh (https://www.youtube.com/watch?v=GhTAoilsFUs) which reminded me not to focus on graphics before I have any gameplay. I needed that.
+- I implemented a jump button. It's a bit floaty, so I'll look up how to tweak that soon.
+- I made some collectibles, which will eventually be plants. Got this part from Coding in Flow.
+- I made a Menu based on a Tarodev tutorial (https://www.youtube.com/watch?v=lF26yGJbsQk), and made it switch scenes with this tutorial by Painless Programming (https://www.youtube.com/watch?v=U7MRDnuROO0&t=303s).
+- I tried animating my UI using the Animator (according to tutorial obvs) but it turns out that's bad so I need to learn about "tweening" (video:https://www.youtube.com/watch?v=Ll3yujn9GVQ&t=81s)
+
+
+- I tried watching some tutorials on "things you do wrong in unity" but it was beyond me. So was "c# for noobs" lol.
+- I did have a brief glorious moment where I did something based on my own knowledge instead of having to look it up! Feeling like I Get This was very nice.
+- A few days ago I asked a question on StackOverflow, and was chagrined to find that the reason my code wasn't working was because I did "(nameof(ReloadLevel())" when I should have done "(nameof(ReloadLevel)" without the extra parenthesis. I spent easily an hour troubleshooting, doing my due diligence, making that post, and getting a response. A reminder to double check/rubber duck my basics, and to not work when I'm sleepy.
+
+I have left off today, 12/22/22, with many things accomplished and some things half finished.
+
+- I am working on an initial prototype for the Encyclopedia unlock. For now I'm just hardcoding a single variable to see if it works - I will make it expandable later. The plant I'm using is "rose." This is in the Item Collection script.
+- I need to designate one of the collectibles as a Rose by tagging it as such.
+- Then I need to remind myself how the script gets attached to the TextField (from this video https://www.youtube.com/watch?v=YQEq6Lkd69c&t=1637s) and see about getting it to unlock on the Encyclopedia scene.
+- I also need to learn about what needs a Serialized Field and what doesn't.
+- I need to remove the "plants collected" text as it's currently not attached to anything/not working.
+
+Tomorrow, I intend to -
+- Finish what I left undone, listed above.
+- Use this video to fix my broken autocomplete: https://www.youtube.com/watch?v=5eeI2hWgPbA
+- See if I can use ChatGPT to learn more about how to accomplish things in C#/Unity. I don't trust that its code is the best, or the most robust, but I think it will be good to learn from.
+- Write up a quick document on what I plan to put into this initial game.
+
+Later, I intend to -
+
+- Learn about Tweening: https://www.youtube.com/watch?v=Ll3yujn9GVQ&t=81s
