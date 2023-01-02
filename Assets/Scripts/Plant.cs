@@ -5,5 +5,5 @@ using UnityEngine;
 public class Plant : MonoBehaviour
 {
     public Encyclopedia.PlantKind PlantKind;
-    public int amount;
+    public int amount = 1;
 }

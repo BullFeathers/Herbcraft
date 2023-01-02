@@ -9,26 +9,29 @@ public class PlantCollection : MonoBehaviour
     private Plant collidedPlant;
 
     // A dictionary to store the plants, using the name of the plant as the key
-    Dictionary<string, Plant> discoveredPlants = new();
+    public List<PlantKind> discoveredPlants = new();
+    public List<Plant> plantInventory = new();
+    public Dictionary<PlantKind, int> collectedPlants = new();
 
     // Update is called once per frame
     void Update()
     {
-        //&& Input.GetButtonDown("Interact") <- put down there V
-        if (collidedPlant != null)
+        if (collidedPlant != null && Input.GetButtonDown("Interact"))
         {
-            Debug.Log("plant isn't null");
             // If the player has entered the collider, unlock the corresponding plant and display its information
-            UnlockPlant(collidedPlant);
+            if (!discoveredPlants.Contains(collidedPlant.PlantKind))
+            {
+                Debug.Log("not discovered plant");
+                UnlockPlant(collidedPlant);
+            }
+            CollectPlant(collidedPlant);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("we collided");
         if (other.gameObject.CompareTag("Plant"))
         {
-            Debug.Log("plant is plant");
             collidedPlant = other.gameObject.GetComponent<Plant>();
         }
     }
@@ -38,13 +41,32 @@ public class PlantCollection : MonoBehaviour
         PlantEntry plantEntry = allPlants[plant.PlantKind];
 
         // Display the information for the unlocked plant
-        Debug.Log(plantEntry.name);
         Debug.Log(plantEntry.info);
+        Debug.Log("You unlocked it!");
+
+        discoveredPlants.Add(plant.PlantKind);
+    }
+
+    void CollectPlant(Plant plant)
+    {
+        plantInventory.Add(plant);
+
+        if (collectedPlants.ContainsKey(plant.PlantKind))
+        {
+            collectedPlants[plant.PlantKind] = collectedPlants[plant.PlantKind] + plant.amount;
+        }
+        else
+        {
+            // TODO: calculate bonus plants
+            collectedPlants.Add(plant.PlantKind, plant.amount);
+        }
 
         // Set the plant GameObject to inactive
         plant.gameObject.SetActive(false);
 
-        //Increment the amount of the object owned
-        plant.amount++;
+        // Display the information for the unlocked plant
+        Debug.Log(collectedPlants[plant.PlantKind]);
+
+        collidedPlant = null;
     }
 }
