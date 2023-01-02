@@ -5,13 +5,19 @@ using static Encyclopedia;
 
 public class PlantCollection : MonoBehaviour
 {
-    
+
     private Plant collidedPlant;
 
     // A dictionary to store the plants, using the name of the plant as the key
     public List<PlantKind> discoveredPlants = new();
     public List<Plant> plantInventory = new();
     public Dictionary<PlantKind, int> collectedPlants = new();
+
+    void LoadData()
+    {
+        collectedPlants = Data.LoadPlantInventory();
+        discoveredPlants = Data.LoadPlantDiscovery();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,9 +28,17 @@ public class PlantCollection : MonoBehaviour
             if (!discoveredPlants.Contains(collidedPlant.PlantKind))
             {
                 Debug.Log("not discovered plant");
-                UnlockPlant(collidedPlant);
+                DiscoverPlant(collidedPlant);
             }
             CollectPlant(collidedPlant);
+        }
+
+        // Delete save data - DONT KEEP
+        if (Input.GetKeyDown("r"))
+        {
+            Data.DeleteSave();
+            LoadData();
+            Debug.Log("you deleted save data");
         }
     }
 
@@ -36,7 +50,7 @@ public class PlantCollection : MonoBehaviour
         }
     }
 
-    void UnlockPlant(Plant plant)
+    void DiscoverPlant(Plant plant)
     {
         PlantEntry plantEntry = allPlants[plant.PlantKind];
 
@@ -45,21 +59,37 @@ public class PlantCollection : MonoBehaviour
         Debug.Log("You unlocked it!");
 
         discoveredPlants.Add(plant.PlantKind);
+
+        Data.AddPlantDiscovery(plant.PlantKind);
+
     }
 
     void CollectPlant(Plant plant)
     {
+        Debug.Log($"Collected {plant.name}!");
+
         plantInventory.Add(plant);
+
+        int amount;
 
         if (collectedPlants.ContainsKey(plant.PlantKind))
         {
-            collectedPlants[plant.PlantKind] = collectedPlants[plant.PlantKind] + plant.amount;
+            Debug.Log($"Collected plants contains {plant.name}.");
+            amount = collectedPlants[plant.PlantKind] + plant.amount;
         }
         else
         {
+            Debug.Log($"Collected plants does not yet contain {plant.name}.");
             // TODO: calculate bonus plants
             collectedPlants.Add(plant.PlantKind, plant.amount);
+            amount = plant.amount;
         }
+
+        collectedPlants[plant.PlantKind] = amount;
+
+        Data.AddPlant(plant.PlantKind, amount);
+
+        // TODO: remove plants that are not present
 
         // Set the plant GameObject to inactive
         plant.gameObject.SetActive(false);
@@ -69,4 +99,10 @@ public class PlantCollection : MonoBehaviour
 
         collidedPlant = null;
     }
+
+    private void Start()
+    {
+        LoadData();
+    }
+
 }
