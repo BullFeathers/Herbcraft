@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.UIElements;
 
 public class Encyclopedia : MonoBehaviour
 {
@@ -24,4 +20,9 @@ public class Encyclopedia : MonoBehaviour
         { PlantKind.Dandelion, new PlantEntry() { name = "Dandelion", info = "This is dandelion." } },
         { PlantKind.Rose, new PlantEntry() { name = "Rose", info = "This is rose." } }
     };
+
+    public static PlantEntry GetEntry(PlantKind plantKind)
+    {
+        return allPlants[plantKind];
+    }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plant
+  - Description
+  - Count
   layers:
   - Default
   - TransparentFX

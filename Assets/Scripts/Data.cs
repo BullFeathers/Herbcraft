@@ -20,6 +20,17 @@ public class Data : MonoBehaviour
         PlayerPrefs.SetInt(GetPlantCollectedKey(plantEntry), amount);
         PlayerPrefs.Save();
     }
+
+    public static int GetAmountCollected(PlantEntry plantEntry)
+    {
+        return PlayerPrefs.GetInt(GetPlantCollectedKey(plantEntry), 0);
+    }
+
+    public static int GetAmountCollected(PlantKind plantKind)
+    {
+        PlantEntry plantEntry = allPlants[plantKind];
+        return GetAmountCollected(plantEntry);
+    }
     
     public static Dictionary<PlantKind, int> LoadPlantInventory()
     {
@@ -30,7 +41,7 @@ public class Data : MonoBehaviour
             var plantKind = kvp.Key;
             var plantEntry = kvp.Value;
 
-            var amountCollected = PlayerPrefs.GetInt(GetPlantCollectedKey(plantEntry), 0);
+            var amountCollected = GetAmountCollected(plantEntry);
 
             collectedPlants.Add(plantKind, amountCollected);
         }
@@ -46,15 +57,15 @@ public class Data : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public static bool PlantEntryIsDiscovered(PlantEntry plantEntry)
+    public static bool PlantIsDiscovered(PlantEntry plantEntry)
     {
         return PlayerPrefs.HasKey(GetPlantDiscoveredKey(plantEntry));
     }
 
-    public static bool PlantKindIsDiscovered(PlantKind plantKind)
+    public static bool PlantIsDiscovered(PlantKind plantKind)
     {
         PlantEntry plantEntry = allPlants[plantKind];
-        return PlantEntryIsDiscovered(plantEntry);
+        return PlantIsDiscovered(plantEntry);
     }
 
     public static List<PlantKind> LoadPlantDiscovery()
@@ -66,7 +77,7 @@ public class Data : MonoBehaviour
             var plantKind = kvp.Key;
             var plantEntry = kvp.Value;
 
-            if (PlantEntryIsDiscovered(plantEntry)) {
+            if (PlantIsDiscovered(plantEntry)) {
                 plantKindsDiscovered.Add(plantKind);
             }
         }

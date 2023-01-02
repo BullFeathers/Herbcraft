@@ -11,7 +11,7 @@ public class PlantIcon : MonoBehaviour
 
     private void Update()
     {
-        if (Data.PlantKindIsDiscovered(plantKind))
+        if (Data.PlantIsDiscovered(plantKind))
         {
             // Light up the icon
             iconImage.color = Color.white;
