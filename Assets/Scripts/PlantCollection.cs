@@ -27,7 +27,6 @@ public class PlantCollection : MonoBehaviour
             // If the player has entered the collider, unlock the corresponding plant and display its information
             if (!discoveredPlants.Contains(collidedPlant.PlantKind))
             {
-                Debug.Log("not discovered plant");
                 DiscoverPlant(collidedPlant);
             }
             CollectPlant(collidedPlant);
@@ -56,7 +55,6 @@ public class PlantCollection : MonoBehaviour
 
         // Display the information for the unlocked plant
         Debug.Log(plantEntry.info);
-        Debug.Log("You unlocked it!");
 
         discoveredPlants.Add(plant.PlantKind);
 
@@ -66,7 +64,6 @@ public class PlantCollection : MonoBehaviour
 
     void CollectPlant(Plant plant)
     {
-        Debug.Log($"Collected {plant.name}!");
 
         plantInventory.Add(plant);
 
