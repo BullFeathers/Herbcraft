@@ -710,8 +710,9 @@ GameObject:
   - component: {fileID: 787591569}
   - component: {fileID: 787591568}
   - component: {fileID: 787591567}
+  - component: {fileID: 787591570}
   m_Layer: 0
-  m_Name: Rose
+  m_Name: Yarrow
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,6 +796,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787591565}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &787591570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787591565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cbe801cbaa04f448178cc51a968ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlantKind: 0
+  amount: 0
 --- !u!1 &792003315
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,22 +974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9052869c6ec11244b79398de23c2104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plants:
-  - name: Yarrow
-    info: this is Yarrow
-    collider: {fileID: 787591565}
-    gameObject: {fileID: 787591565}
-    amount: 0
-  - name: Fern
-    info: this is a Fern
-    collider: {fileID: 1887991726}
-    gameObject: {fileID: 1887991726}
-    amount: 0
-  - name: Plant
-    info: this is a plant
-    collider: {fileID: 1083181376}
-    gameObject: {fileID: 1083181376}
-    amount: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,8 +1070,9 @@ GameObject:
   - component: {fileID: 1083181380}
   - component: {fileID: 1083181379}
   - component: {fileID: 1083181378}
+  - component: {fileID: 1083181381}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: Dandelion
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1156,6 +1156,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083181376}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1083181381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083181376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cbe801cbaa04f448178cc51a968ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlantKind: 2
+  amount: 0
 --- !u!1 &1260201378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1702,7 @@ GameObject:
   - component: {fileID: 1887991730}
   - component: {fileID: 1887991729}
   - component: {fileID: 1887991728}
+  - component: {fileID: 1887991731}
   m_Layer: 0
   m_Name: Fern
   m_TagString: Plant
@@ -1773,3 +1788,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887991726}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1887991731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887991726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cbe801cbaa04f448178cc51a968ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlantKind: 1
+  amount: 0
