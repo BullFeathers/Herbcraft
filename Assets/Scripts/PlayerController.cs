@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _input;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _speed = 5f;
-    [SerializeField] private float _turnSpeed = 360f;
+    [SerializeField] private float _turnSpeed = 900f;
     [SerializeField] private float _jumpHeight = 5f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
@@ -27,12 +27,12 @@ public class PlayerController : MonoBehaviour
     }
 
     void Look() {
-        if (_input != Vector3.zero) {
+        if (_input != Vector3.zero)
+        {
+            var relative = (transform.position + _input.ToIso()) - transform.position;
+            var rot = Quaternion.LookRotation(relative, Vector3.up);
 
-        var relative = (transform.position + _input.ToIso()) - transform.position;
-        var rot = Quaternion.LookRotation(relative, Vector3.up);
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
         }
     }
 
