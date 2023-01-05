@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ad6bd1950d208740b19419fb70afa41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.87
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ad6bd1950d208740b19419fb70afa41, type: 3}
       propertyPath: m_LocalPosition.z
@@ -511,7 +511,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284357750}
-  m_LocalRotation: {x: 0.12450487, y: 0.0100439675, z: -0.0012603949, w: 0.9921674}
+  m_LocalRotation: {x: 0.12450487, y: 0.010043985, z: -0.0012603971, w: 0.9921674}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492598104}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cfb062b3eb7eab448689aab813916d0, type: 3}
   m_Name: 
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492598104}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bec6505295e91342a838508151fea8d, type: 3}
   m_Name: 
@@ -1773,7 +1773,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.12450489, y: 0.010043953, z: -0.0012603933, w: 0.9921674}
+  m_LocalRotation: {x: 0.12450489, y: 0.010044, z: -0.0012603992, w: 0.9921674}
   m_LocalPosition: {x: 4.5725417, y: 6.2200003, z: -12.138647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3058,6 +3058,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.53, z: 0}
+--- !u!114 &2033582306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033582300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfb062b3eb7eab448689aab813916d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  discoveredPlants: 
+  plantInventory: []
+--- !u!114 &2033582307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033582300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bec6505295e91342a838508151fea8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082330561
 GameObject:
   m_ObjectHideFlags: 3
